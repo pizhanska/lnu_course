@@ -1,82 +1,81 @@
 package com.lnu.models;
 
 public class User {
-    private String UserName;
-    private String Email;
-    private String Login;
-    private String Password;
-    private String PhoneNumber;
-    private String Course;
-    private int Roles;
+    private String userName;
+    private String email;
+    private String login;
+    private String password;
+    private String phoneNumber;
+    private String course;
+    private int roles;
 
 
-    public User(String line) {
-        String[] split = line.split(",");
-        this.UserName = split[0];
-        this.Email = split[1];
-        this.Login = split[2];
-        this.Password = split[3];
-        this.PhoneNumber = split[4];
-        this.Course = split[5];
-        this.Roles = Integer.parseInt(split[6]);
+    public User(String userName, String email, String login, String password, String phoneNumber, String course, int roles){
+        this.userName = userName;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.course = course;
+        this.roles = roles;
     }
 
     public User(){}
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getLogin() {
-        return Login;
+        return login;
     }
 
     public void setLogin(String login) {
-        Login = login;
+        this.login = login;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getCourse() {
-        return Course;
+        return course;
     }
 
     public void setCourse(String course) {
-        Course = course;
+        this.course = course;
     }
 
     public int getRoles() {
-        return Roles;
+        return roles;
     }
 
     public void setRoles(int roles) {
-        Roles = roles;
+        this.roles = roles;
     }
 
     @Override

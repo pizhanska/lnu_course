@@ -18,7 +18,7 @@
         </layout>
     </appender>
 
-    <appender name="reportAppender" class="com.epam.mentorship.service.utils.ReportAppender">
+    <appender name="reportAppender" class="com.lnu.utils.ReportAppender">
         <param name="Threshold" value="INFO"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %-5p [%c{1}] %m %n" />
