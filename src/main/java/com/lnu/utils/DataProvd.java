@@ -22,26 +22,4 @@ public class DataProvd {
         };
     }
 
-    @DataProvider (name = "getPosts")
-    public static Object[][] getPosts() {
-        return readData("src/main/resources/uri.csv");
-    }
-
-
-    private static Object[][] readData(String path){
-        String[][] data = null;
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-            List<String[]> list = bufferedReader.lines()
-                    .map(line -> line.split(";"))
-                    .collect(Collectors.toList());
-            data = list.toArray(new String[list.size()][]);
-            log.info("File is successfully read");
-
-        }
-        catch (FileNotFoundException e){
-            log.info("Oops, file is not found");
-        }
-        return data;
-    }
 }
