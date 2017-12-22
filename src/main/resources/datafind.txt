@@ -1,0 +1,13 @@
+{
+    "optionList" : [{
+        "userName" : "uliana",
+        "email" : "pizhanska29@gmail.com",
+        "login" : "pizhanska",
+        "password" : "1111",
+        "phoneNumber" : "09880",
+        "course" : "maths",
+        "roles" : 1
+    }],
+    "take":10,
+    "skip":0
+}
