@@ -1,5 +1,9 @@
 package com.lnu.models;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+
 public class User {
     private String userName;
     private String email;
