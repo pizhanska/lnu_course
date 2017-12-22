@@ -8,10 +8,10 @@ import java.io.IOException;
 
 public class JsonConverter {
     public static ObjectMapper mapper;
-    public static User convertFromJson(){
+    public <T extends Object> T convertFromJson(String path, Class<T> type){
         mapper = new ObjectMapper();
         try {
-            return mapper.readValue(new File("src/main/resources/post.txt"), User.class);
+            return mapper.readValue(new File(path),type);
         }
         catch (IOException e){
             e.printStackTrace();

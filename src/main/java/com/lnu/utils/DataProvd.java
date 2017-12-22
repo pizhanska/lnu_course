@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class DataProvd {
 
 
-    private static Logger log = Logger.getLogger("RC: ");
+    private static Logger log = Logger.getLogger("RS: ");
 
     @DataProvider(name = "deletePosts")
     public static Object[][] loginTitle() {
