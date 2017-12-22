@@ -16,14 +16,14 @@ public class CRUDTest extends BaseTest {
     public void deleteUser(){
         user = jsonConverter.convertFromJson("src/main/resources/data.txt", User.class);
         log.info("Read data for deleting");
-        requests.delete("/user/delete", user);
+        requests.delete("/user/delete", user, 200);
         log.info("User " + user.getUserName() + " was deleted");
     }
     @Test
     public void addUser(){
         user = jsonConverter.convertFromJson("src/main/resources/data.txt", User.class);
         log.info("Read data for adding user");
-        requests.add("/user/add", user);
+        requests.add("/user/add", user, 200);
         log.info("User " + user.getUserName() + " was added");
     }
 
@@ -31,33 +31,85 @@ public class CRUDTest extends BaseTest {
     public void deleteDiscipline(){
         discipline = jsonConverter.convertFromJson("src/main/resources/discipline.txt", Discipline.class);
         log.info("Read data for deleting");
-        requests.delete("/discipline/delete", discipline);
+        requests.delete("/discipline/delete", discipline, 200);
         log.info("Discipline " + discipline.getName() + " was deleted");
     }
     @Test
     public void addDiscipline(){
         discipline = jsonConverter.convertFromJson("src/main/resources/discipline.txt",Discipline.class);
         log.info("Read data for adding discipline");
-        requests.add("/discipline/add", discipline);
+        requests.add("/discipline/add", discipline, 200);
         log.info("Discipline " + discipline.getName() + " was added");
     }
 
-
-    //TODO fix input data (getting 400, bad request)
-   /* @Test
-    public void updateUser(){
-        user = JsonConverter.convertFromJson("src/main/resources/upddata.txt");
+    @Test
+    public void updateUserValid(){
+        user = jsonConverter.convertFromJson("src/main/resources/upddata.txt", User.class);
         log.info("Read data for updating");
-        requests.update("/user/update", user);
+        requests.update("/user/update", user, 400);
         log.info("User " + user.getUserName() + " was updated");
-    }*/
+    }
 
-    //TODO fix input data (getting 400, bad request)
-    /*@Test
-    public void findUser(){
-        user = JsonConverter.convertFromJson("src/main/resources/datafind.txt");
+    @Test
+    public void updateUserInvalid(){
+        user = jsonConverter.convertFromJson("src/main/resources/upddata.txt", User.class);
+        log.info("Read data for updating");
+        requests.update("/user/update", user, 400);
+        log.info("User " + user.getUserName() + " was not updated. Invalid body request");
+    }
+
+    @Test
+    public void findUserInvalid(){
+        user = jsonConverter.convertFromJson("src/main/resources/datafind.txt", User.class);
         log.info("Read data for finding");
-        requests.update("/user/find", user);
+        requests.update("/user/find", user, 400);
+        log.info("User " + user.getUserName() + " was not founded. Invalid body request");
+
+    }
+
+
+    @Test
+    public void findUserValid(){
+        user = jsonConverter.convertFromJson("src/main/resources/data.txt", User.class);
+        log.info("Read data for finding");
+        requests.update("/user/find", user, 400);
         log.info("User " + user.getUserName() + " was founded");
-    }*/
+    }
+
+    @Test
+    public void updateDisciplineValid(){
+        discipline = jsonConverter.convertFromJson("src/main/resources/discipline.txt", Discipline.class);
+        log.info("Read data for updating");
+        requests.update("/discipline/update", user, 400);
+        log.info("Status code : 200");
+        log.info("Discipline " + discipline.getName() + " was updated");
+    }
+
+    @Test
+    public void updateDisciplineInvalid(){
+        discipline = jsonConverter.convertFromJson("src/main/resources/discipline.txt", Discipline.class);
+        log.info("Read data for updating");
+        requests.update("/discipline/update", user, 400);
+        log.info("Status code : 400");
+        log.info("Discipline " + discipline.getName() + " was not updated. Invalid body request");
+    }
+
+    @Test
+    public void findDisciplineInvalid(){
+        discipline = jsonConverter.convertFromJson("src/main/resources/datafinddisc.txt", Discipline.class);
+        log.info("Read data for finding");
+        requests.update("/discipline/find", discipline, 400);
+        log.info("Status code : 400");
+        log.info("Discipline " + discipline.getName() + " was not founded. Invalid body request");
+    }
+
+
+    @Test
+    public void findDisciplineValid(){
+        discipline = jsonConverter.convertFromJson("src/main/resources/discipline.txt", Discipline.class);
+        log.info("Read data for finding");
+        requests.update("/discipline/find", discipline, 400);
+        log.info("Status code : 200");
+        log.info("Discipline " + discipline.getName() + " was founded");
+    }
 }

@@ -1,0 +1,7 @@
+{
+        "name" : "philosophy",
+        "semester" : "3",
+        "disciplineType" : "technical",
+        "description" : "description"
+
+}
