@@ -1,4 +1,5 @@
 package com.lnu.test;
+import com.lnu.actions.Requests;
 import com.lnu.models.User;
 import com.lnu.utils.JsonConverter;
 import io.restassured.RestAssured;
@@ -7,13 +8,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class TestClientMethods {
-    private Logger log = Logger.getLogger("RC: ");
+public class BaseTest {
+    private Logger log = Logger.getLogger("RS: ");
+    public Requests requests;
     @BeforeClass
-    public static void setup() {
+    public void setup() {
         String port = System.getProperty("server.port");
         if (port == null) {
             RestAssured.port = Integer.valueOf(5000);
@@ -27,19 +26,7 @@ public class TestClientMethods {
         }
         RestAssured.baseURI = baseHost;
 
+        log.info("Created base URI");
+        requests = new Requests();
     }
-
-    @Test(description = "add new user")
-    public void addUser() {
-        User user = JsonConverter.convertFromJson();
-        RestAssured.given()
-                .contentType("application/json")
-                .body(user)
-                .when().put("/user/add").then()
-                .statusCode(200);
-        log.info("User "+ user.getUserName() + "is added");
-    }
-
-
-
 }
