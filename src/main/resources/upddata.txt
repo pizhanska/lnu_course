@@ -1,0 +1,10 @@
+{
+    "userName" : "pizhanska",
+    "email" : "pizhanska29@gmail.com",
+    "login" : "piupiu",
+    "password" : "1111",
+    "phoneNumber" : "09880",
+    "course" : "maths",
+    "roles" : 1,
+    "id": "UUID"
+}

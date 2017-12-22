@@ -1,0 +1,6 @@
+    {
+        "name" : "integral equations",
+        "semester" : "3",
+        "disciplineType" : "technical",
+        "description" : "description"
+     }
