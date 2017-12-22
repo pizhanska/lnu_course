@@ -7,7 +7,7 @@
     </listeners>
     <test name="TestClientMethods">
         <classes>
-            <class name="com.lnu.test.TestClientMethods"/>
+            <class name="com.lnu.test.CRUDTest"/>
         </classes>
     </test>
 </suite>
